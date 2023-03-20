@@ -42,10 +42,26 @@
     $with_parking = isset($_GET['parking']) && $_GET['parking'] == 'on';
     if ($with_parking) {
         $hotels = array_filter($hotels, function($hotel) {
-        return $hotel['parking'] == true;
+        return $hotel['parking'] === true;
         });
-    }
+    };
 
+    
+    
+    //if ($vote_user) {
+        $hotels = array_filter($hotels, function($hotel) {
+
+            var_dump($hotel['vote']);
+
+            $vote = number_format($_GET['vote']);
+
+            var_dump($vote);
+            
+            return $hotel['vote'] >= $vote;
+        });
+    //};
+
+    
 
     // var_dump($hotels)
 ?>
@@ -65,6 +81,8 @@
         <form action="./index.php" method="GET">
             Parking <input type="checkbox" name="parking">
 
+            <input type="number" name="vote" min="1" max="5">
+
             <input type="submit">
         </form>
     </div>
@@ -77,11 +95,11 @@
         <ul>
             <?php 
                 foreach ($hotels as $hotel) {
-                    var_dump($hotel['parking'])
+                    var_dump($hotel['parking']);
+                    var_dump($hotel['vote']);
             ?>
 
                 <li>
-
                     <ul>
                         <?php 
                             foreach ($hotel as $key => $value) {

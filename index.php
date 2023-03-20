@@ -39,6 +39,13 @@
 
     ];
 
+    $with_parking = isset($_GET['parking']) && $_GET['parking'] == 'on';
+    if ($with_parking) {
+        $hotels = array_filter($hotels, function($hotel) {
+        return $hotel['parking'] == true;
+        });
+    }
+
 
     // var_dump($hotels)
 ?>

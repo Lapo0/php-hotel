@@ -39,6 +39,7 @@
 
     ];
 
+
     // var_dump($hotels)
 ?>
 
@@ -53,6 +54,14 @@
 </head>
 <body>
 
+    <div class="container py-5">
+        <form action="./index.php" method="GET">
+            Parking <input type="checkbox" name="parking">
+
+            <input type="submit">
+        </form>
+    </div>
+
     <div class="container">
         <h1>
             HOTEL
@@ -61,6 +70,7 @@
         <ul>
             <?php 
                 foreach ($hotels as $hotel) {
+                    var_dump($hotel['parking'])
             ?>
 
                 <li>
@@ -128,9 +138,6 @@
             </tbody>
         </table>
     </div>
-    
-
-    
     
 </body>
 </html>

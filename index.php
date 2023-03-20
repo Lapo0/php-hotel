@@ -39,7 +39,7 @@
 
     ];
 
-    var_dump($hotels)
+    // var_dump($hotels)
 ?>
 
 <!DOCTYPE html>
@@ -48,44 +48,89 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <title>HOTEL</title>
 </head>
 <body>
 
-    <h1>
-        HOTEL
-    </h1>
+    <div class="container">
+        <h1>
+            HOTEL
+        </h1>
 
-    <ul>
-        <?php 
-            foreach ($hotels as $hotel) {
-        ?>
+        <ul>
+            <?php 
+                foreach ($hotels as $hotel) {
+            ?>
 
-        <li>
+            <li>
 
-            <ul>
+                <ul>
+                    <?php 
+                        foreach ($hotel as $key => $value) {
+                    ?>
+                    
+                    <li>
+                        <?php 
+                            echo $key
+                        ?>
+                        :
+                        <?php 
+                            echo $value
+                        ?>
+                    </li>        
+                    <?php
+                        }    
+                    ?>
+                </ul>
+            </li>
+            <?php 
+                }
+            ?>
+        </ul>
+    </div>
+
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
                 <?php 
+                foreach ($hotel as $key => $value) {
+                ?>
+                <th scope="col">
+                    <?php echo $key ?>
+                </th>
+                <?php 
+                }
+                ?>
+                </tr>
+            </thead>
+            <tbody>
+                <?php 
+                foreach ($hotels as $hotel) {
+                ?>
+                <tr>
+                    <?php 
                     foreach ($hotel as $key => $value) {
-                ?>
-                
-                <li>
-                    <?php 
-                        echo $key
                     ?>
-                    :
+                        <td> 
+                            <?php echo $value ?>
+                        </td>
+
                     <?php 
-                        echo $value
+                    }
                     ?>
-                </li>        
-                <?php
-                    }    
+                </tr>
+
+                <?php 
+                    }
                 ?>
-            </ul>
-        </li>
-        <?php 
-            }
-        ?>
-    </ul>
+            </tbody>
+        </table>
+    </div>
+    
+
+    
     
 </body>
 </html>

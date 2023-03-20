@@ -39,7 +39,7 @@
 
     ];
 
-    var_dump($_GET)
+    var_dump($hotels)
 ?>
 
 <!DOCTYPE html>
@@ -62,9 +62,25 @@
         ?>
 
         <li>
-            <?php 
-                echo $hotel
-            ?>
+
+            <ul>
+                <?php 
+                    foreach ($hotel as $key => $value) {
+                ?>
+                
+                <li>
+                    <?php 
+                        echo $key
+                    ?>
+                    :
+                    <?php 
+                        echo $value
+                    ?>
+                </li>        
+                <?php
+                    }    
+                ?>
+            </ul>
         </li>
         <?php 
             }

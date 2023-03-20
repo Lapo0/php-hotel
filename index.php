@@ -63,27 +63,27 @@
                 foreach ($hotels as $hotel) {
             ?>
 
-            <li>
+                <li>
 
-                <ul>
-                    <?php 
-                        foreach ($hotel as $key => $value) {
-                    ?>
-                    
-                    <li>
+                    <ul>
                         <?php 
-                            echo $key
+                            foreach ($hotel as $key => $value) {
                         ?>
-                        :
-                        <?php 
-                            echo $value
+                        
+                            <li>
+                                <?php 
+                                    echo $key
+                                ?>
+                                :
+                                <?php 
+                                    echo $value
+                                ?>
+                            </li>        
+                        <?php
+                            }    
                         ?>
-                    </li>        
-                    <?php
-                        }    
-                    ?>
-                </ul>
-            </li>
+                    </ul>
+                </li>
             <?php 
                 }
             ?>
